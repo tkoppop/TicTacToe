@@ -12,25 +12,26 @@ public class tictactoe{
                               {'-', '+', '-', '+', '-'},
                               {' ', '|', ' ', '|', ' '}};
         printGB(gameBoard); 
-
-       
+        Random rand = new Random();
+        Scanner scan = new Scanner(System.in);
+        int pos= -1;
+        String result = "";
         while(true) {
-            Scanner scan = new Scanner(System.in);
+            scan = new Scanner(System.in);
             System.out.println("Enter your placement (1-9);");
-            int pos = scan.nextInt();
+            pos = scan.nextInt();
             while(playerPos.contains(pos) || cpuPos.contains(pos)){
                 System.out.println("Position taken! Enter a correct Position");
                 pos = scan.nextInt();
             }
-            String result = checkWinner();
+            placePiece(gameBoard, pos, "player");
+            result = checkWinner();
             if(result.length() > 0 ){
+                printGB(gameBoard);
                 System.out.println(result);
-                scan.close();
                 break;
             }
-
-            placePiece(gameBoard, pos, "player");
-            Random rand = new Random();
+            
             int cPos = rand.nextInt(9) + 1;
             while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
                 cPos = rand.nextInt(9) + 1;
@@ -40,12 +41,10 @@ public class tictactoe{
             result = checkWinner();
             if(result.length() > 0 ){
                 System.out.println(result);
-                scan.close();
                 break;
             }
-            scan.close();
         }
-        
+        scan.close();
 
     }
 
