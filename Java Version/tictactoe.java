@@ -43,7 +43,7 @@ public class tictactoe{
                 scan.close();
                 break;
             }
-            
+            scan.close();
         }
         
 
@@ -102,16 +102,16 @@ public class tictactoe{
     }
 
     public static String checkWinner() {
-        List topRow = Arrays.asList(1,2,3);
-        List midRow = Arrays.asList(4,5,6);
-        List botRow = Arrays.asList(7,8,9);
-        List leftCol = Arrays.asList(1,4,7);
-        List midCol = Arrays.asList(2,5,8);
-        List rightCol = Arrays.asList(3,6,9);
-        List rightDiag = Arrays.asList(1,5,9);
-        List leftDiag = Arrays.asList(7,5,3);
+        List<Integer> topRow = Arrays.asList(1,2,3);
+        List<Integer> midRow = Arrays.asList(4,5,6);
+        List<Integer> botRow = Arrays.asList(7,8,9);
+        List<Integer> leftCol = Arrays.asList(1,4,7);
+        List<Integer> midCol = Arrays.asList(2,5,8);
+        List<Integer> rightCol = Arrays.asList(3,6,9);
+        List<Integer> rightDiag = Arrays.asList(1,5,9);
+        List<Integer> leftDiag = Arrays.asList(7,5,3);
 
-        List<List> winning = new ArrayList<List>();
+        List<List<Integer>> winning = new ArrayList<List<Integer>>();
         winning.add(topRow);
         winning.add(midRow);
         winning.add(botRow);
@@ -121,7 +121,7 @@ public class tictactoe{
         winning.add(rightDiag);
         winning.add(leftDiag);
 
-        for(List l : winning){
+        for(List<Integer> l : winning){
             if(playerPos.containsAll(l)){
                 return "You Win!";
             } else if(cpuPos.containsAll(l)){
