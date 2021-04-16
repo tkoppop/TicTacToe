@@ -234,21 +234,19 @@ public class tttAiFirst{
                 boardState = 9;
                 return 5;
             }
-            break;
             case 4:
-            if (!playerPos.contain(4)){
+            if (!playerPos.contains(4)){
                 //win
                 return 4;
             } else {
                 boardState = 10;
                 return 9;
             }
-            break;
             case 5:
             if (playerPos.contains(2)){
                 boardState = 11;
                 return 3;
-            } else if (playerPos.contains(3){
+            } else if (playerPos.contains(3)){
                 boardState = 12;
                 return 2;
             } else if (playerPos.contains(4)){
@@ -266,73 +264,73 @@ public class tttAiFirst{
             }
             break;
             case 6:
-            if (playPos.contains(1)){
+            if (playerPos.contains(1)){
                 boardState = 17;
                 return 2;
-            } else if (playPos.contains(2){
+            } else if (playerPos.contains(2)){
                 boardState = 18;
                 return 1;
-            } else if (playPos.contains(4)){
+            } else if (playerPos.contains(4)){
                 boardState = 19;
                 return 8;
-            } else if (playPos.contains(6)){
+            } else if (playerPos.contains(6)){
                 boardState = 20;
                 return 9;
-            } else if (playPos.contains(8)){
+            } else if (playerPos.contains(8)){
                 boardState = 21;
                 return 4;
-            } else if (playPos.contains(9)){
+            } else if (playerPos.contains(9)){
                 boardState = 22;
                 return 6;
             }
             break;
             case 7:
-            if (playPos.contains(1)){
+            if (playerPos.contains(1)){
                 boardState = 23;
                 return 4;
-            } else if (playPos.contains(2){
+            } else if (playerPos.contains(2)){
                 boardState = 24;
                 return 6;
-            } else if (playPos.contains(4)){
+            } else if (playerPos.contains(4)){
                 return 1;
-            } else if (playPos.contains(6)){
+            } else if (playerPos.contains(6)){
                 return 2;
-            } else if (playPos.contains(8)){
+            } else if (playerPos.contains(8)){
                 return 9;
-            } else if (playPos.contains(9)){
+            } else if (playerPos.contains(9)){
                 return 8;
             }
             break;
             case 8:
-            if (playPos.contains(2)){
+            if (playerPos.contains(2)){
                 return 4;
-            } else if (playPos.contains(3){
+            } else if (playerPos.contains(3)){
                 return 6;
-            } else if (playPos.contains(4)){
+            } else if (playerPos.contains(4)){
                 return 2;
-            } else if (playPos.contains(6)){
+            } else if (playerPos.contains(6)){
                 return 3;
-            } else if (playPos.contains(7)){
+            } else if (playerPos.contains(7)){
                 return 8;
-            } else if (playPos.contains(8)){
+            } else if (playerPos.contains(8)){
                 return 7;
             }
             break;
             case 9:
-            if (!playPos.contain(8)){
+            if (!playerPos.contains(8)){
                 //win
                 return 8;
             } else {
                 return 1;
             }
-            break;
         }
+        return -1;
     }
 
     public static int fourthAiMove(){
         switch(boardState){
             case 1:
-            if(!playPos.contains(4)){
+            if(!playerPos.contains(4)){
                 //win
                 return 4;
             } else {
@@ -340,203 +338,181 @@ public class tttAiFirst{
                 return 3;
             }
             case 2:
-            if(!playPos.contains(2)){
+            if(!playerPos.contains(2)){
                 //win
                 return 2;
             } else {
                 //win
                 return 7;
             }
-            break;
             case 3:
-            if(!playPos.contains(4)){
+            if(!playerPos.contains(4)){
                 //win
                 return 4;
             } else {
                 //win
                 return 8;
             }
-            break;
             case 4:
-            if(!playPos.contains(2)){
+            if(!playerPos.contains(2)){
                 //win
                 return 2;
             } else {
                 //win
                 return 6;
             }
-            break;
             case 5:
-            if(!playPos.contains(7)){
+            if(!playerPos.contains(7)){
                 //win
                 return 7;
             } else {
                 boardState = 1;
                 return 3;
             }
-            break;
             case 6:
-            if(!playPos.contains(3)){
+            if(!playerPos.contains(3)){
                 //win
                 return 3;
             } else {
                 boardState = 2;
                 return 7;
             }
-            break;
             case 7:
-            if(!playPos.contains(7)){
+            if(!playerPos.contains(7)){
                 //win
                 return 7;
             } else {
                 boardState = 3;
                 return 3;
             }
-            break;
             case 8:
-            if(!playPos.contains(3)){
+            if(!playerPos.contains(3)){
                 //win
                 return 3;
             } else {
-                boardstate = 4;
+                boardState = 4;
                 return 7;
             }
-            break;
             case 9:
-            if(!playPos.contains(7)){
+            if(!playerPos.contains(7)){
                 //win
                 return 7;
             } else {
-                boardstate = 5;
+                boardState = 5;
                 return 8;
             }
-            break;
             case 10:
-            if(!playPos.contains(1)){
+            if(!playerPos.contains(1)){
                 //win
                 return 1;
             } else {
                 //win
                 return 3;
             }
-            break;
             case 11:
-            if(!playPos.contains(7)){
+            if(!playerPos.contains(7)){
                 //win
                 return 7;
             } else {
                 //win
                 return 6;
             }
-            break;
             case 12:
-            if(!playPos.contains(8)){
+            if(!playerPos.contains(8)){
                 //win
                 return 8;
             } else {
                 boardState = 6;
                 return 6;
             }
-            break;
             case 13:
-            if(!playPos.contains(3)){
+            if(!playerPos.contains(3)){
                 //win
                 return 3;
             } else {
                 //win
                 return 8;
             }
-            break;
             case 14:
-            if(!playPos.contains(7)){
+            if(!playerPos.contains(7)){
                 //win
                 return 7;
             } else {
                 //win
                 return 2;
             }
-            break;
             case 15:
-            if(!playPos.contains(6)){
+            if(!playerPos.contains(6)){
                 //win
                 return 6;
             } else {
                 boardState = 7;
                 return 2;
             }
-            break;
             case 16:
-            if(!playPos.contains(3)){
+            if(!playerPos.contains(3)){
                 //win
                 return 3;
             } else {
                 //win
                 return 4;
             }
-            break;
             case 17:
-            if(!playPos.contains(8)){
+            if(!playerPos.contains(8)){
                 //win
                 return 8;
             } else {
                 boardState = 8;
                 return 6;
             }
-            break;
             case 18:
-            if(!playPos.contains(4)){
+            if(!playerPos.contains(4)){
                 //win
                 return 4;
             } else {
                 //win
                 return 9;
             }
-            break;
             case 19:
-            if(!playPos.contains(9)){
+            if(!playerPos.contains(9)){
                 //win
                 return 9;
             } else {
                 //win
                 return 2;
             }
-            break;
             case 20:
-            if(!playPos.contains(8)){
+            if(!playerPos.contains(8)){
                 //win
                 return 8;
             } else {
                 //win
                 return 2;
             }
-            break;
             case 21:
-            if(!playPos.contains(1)){
+            if(!playerPos.contains(1)){
                 //win
                 return 1;
             } else {
                 //win
                 return 6;
             }
-            break;
             case 22:
-            if(!playPos.contains(4)){
+            if(!playerPos.contains(4)){
                 //win
                 return 4;
             } else {
                 boardState = 9;
                 return 2;
             }
-            break;
             case 23:
-            if(!playPos.contains(6)){
+            if(!playerPos.contains(6)){
                 //win
                 return 6;
             } else {
                 boardState = 10;
                 return 8;
             }
-            break;
             
         }
     }
