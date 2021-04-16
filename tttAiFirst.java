@@ -31,35 +31,94 @@ public class tttAiFirst{
         placePiece(gameBoard,cPos,"cpu");
 
         printGB(gameBoard); 
-        while(true) {
-            scan = new Scanner(System.in);
-            System.out.println("Enter your placement (1-9);");
+        //PLAYER FIRST MOVE
+        scan = new Scanner(System.in);
+        System.out.println("Enter your placement (1-9);");
+        pos = scan.nextInt();
+        while(playerPos.contains(pos) || cpuPos.contains(pos)){
+            System.out.println("Position taken! Enter a correct Position");
             pos = scan.nextInt();
-            while(playerPos.contains(pos) || cpuPos.contains(pos)){
-                System.out.println("Position taken! Enter a correct Position");
-                pos = scan.nextInt();
-            }
-            placePiece(gameBoard, pos, "player");
-            result = checkWinner();
-            if(result.length() > 0 ){
-                printGB(gameBoard);
-                System.out.println(result);
-                break;
-            }
-            
-            cPos = rand.nextInt(9) + 1;
-            while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
-                cPos = rand.nextInt(9) + 1;
-            }
-            placePiece(gameBoard, cPos, "cpu");
+        }
+        placePiece(gameBoard, pos, "player");
+        result = checkWinner();
+        if(result.length() > 0 ){
             printGB(gameBoard);
-            result = checkWinner();
-            if(result.length() > 0 ){
-                System.out.println(result);
-                break;
-            }
+            System.out.println(result);
+            System.exit(0);
+        }
+        //CPU SECOND MOVE    
+        cPos = secondAiMove();
+        while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
+            System.out.print("Ai fucked up");
+            cPos = rand.nextInt(9) + 1;
+        }
+        placePiece(gameBoard, cPos, "cpu");
+        printGB(gameBoard);
+        result = checkWinner();
+        if(result.length() > 0 ){
+            System.out.println(result);
+            System.exit(0);
+        }
+
+        //PLAYER SECOND MOVE
+        System.out.println("Enter your placement (1-9);");
+        pos = scan.nextInt();
+        while(playerPos.contains(pos) || cpuPos.contains(pos)){
+            System.out.println("Position taken! Enter a correct Position");
+            pos = scan.nextInt();
+        }
+        placePiece(gameBoard, pos, "player");
+        result = checkWinner();
+        if(result.length() > 0 ){
+            printGB(gameBoard);
+            System.out.println(result);
+            System.exit(0);
+        }
+
+        //CPU THIRD MOVE    
+        cPos = thirdAiMove();
+        while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
+            System.out.print("Ai fucked up");
+            cPos = rand.nextInt(9) + 1;
+        }
+        placePiece(gameBoard, cPos, "cpu");
+        printGB(gameBoard);
+        result = checkWinner();
+        if(result.length() > 0 ){
+            System.out.println(result);
+            System.exit(0);
+        }
+
+        //PLAYER THIRD MOVE
+        System.out.println("Enter your placement (1-9);");
+        pos = scan.nextInt();
+        while(playerPos.contains(pos) || cpuPos.contains(pos)){
+            System.out.println("Position taken! Enter a correct Position");
+            pos = scan.nextInt();
+        }
+        placePiece(gameBoard, pos, "player");
+        result = checkWinner();
+        if(result.length() > 0 ){
+            printGB(gameBoard);
+            System.out.println(result);
+            System.exit(0);
+        }
+
+        //CPU FOURTH MOVE    
+        cPos = fourthAiMove();
+        while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
+            System.out.print("Ai fucked up");
+            cPos = rand.nextInt(9) + 1;
+        }
+        placePiece(gameBoard, cPos, "cpu");
+        printGB(gameBoard);
+        result = checkWinner();
+        if(result.length() > 0 ){
+            System.out.println(result);
+            System.exit(0);
         }
         scan.close();
+        System.out.println("Game Didn't End?");
 
     }
 
@@ -149,7 +208,7 @@ public class tttAiFirst{
         return "";
     }
 
-    public static int secondAiMove(char[][]gb){
+    public static int secondAiMove(){
         switch(strat){
             case 1:
             if (playerPos.contains(2)||playerPos.contains(4) ||playerPos.contains(6) ||playerPos.contains(8)){
@@ -292,27 +351,37 @@ public class tttAiFirst{
                 boardState = 24;
                 return 6;
             } else if (playerPos.contains(4)){
+                boardState = 25;
                 return 1;
             } else if (playerPos.contains(6)){
+                boardState = 26;
                 return 2;
             } else if (playerPos.contains(8)){
+                boardState = 27;
                 return 9;
             } else if (playerPos.contains(9)){
+                boardState = 28;
                 return 8;
             }
             break;
             case 8:
             if (playerPos.contains(2)){
+                boardState = 29;
                 return 4;
             } else if (playerPos.contains(3)){
+                boardState = 30;
                 return 6;
             } else if (playerPos.contains(4)){
+                boardState = 31;
                 return 2;
             } else if (playerPos.contains(6)){
+                boardState = 32;
                 return 3;
             } else if (playerPos.contains(7)){
+                boardState = 33;
                 return 8;
             } else if (playerPos.contains(8)){
+                boardState = 34;
                 return 7;
             }
             break;
@@ -321,6 +390,7 @@ public class tttAiFirst{
                 //win
                 return 8;
             } else {
+                boardState = 35;
                 return 1;
             }
         }
@@ -513,8 +583,216 @@ public class tttAiFirst{
                 boardState = 10;
                 return 8;
             }
-            
+            case 24:
+            if(!playerPos.contains(9)){
+                //win
+                return 9;
+            } else {
+                //win
+                return 4;
+            }
+            case 25:
+            if(!playerPos.contains(2)){
+                //win
+                return 2;
+            } else {
+                //win
+                return 9;
+            }
+            case 26:
+            if(!playerPos.contains(1)){
+                //win
+                return 1;
+            } else {
+                //win
+                return 8;
+            }
+            case 27:
+            if(!playerPos.contains(6)){
+                //win
+                return 6;
+            } else {
+                //win
+                return 1;
+            }
+            case 28:
+            if(!playerPos.contains(2)){
+                //win
+                return 2;
+            } else {
+                boardState = 11;
+                return 4;
+            }
+            case 29:
+            if(!playerPos.contains(7)){
+                //win
+                return 7;
+            } else {
+                //win
+                return 6;
+            }
+            case 30:
+            if(!playerPos.contains(7)){
+                //win
+                return 7;
+            } else {
+                //win
+                return 6;
+            }
+            case 31:
+            if(!playerPos.contains(3)){
+                //win
+                return 3;
+            } else {
+                //win
+                return 8;
+            }
+            case 32:
+            if(!playerPos.contains(2)){
+                //win
+                return 2;
+            } else {
+                //win
+                return 7;
+            }
+            case 33:
+            if(!playerPos.contains(2)){
+                //win
+                return 2;
+            } else {
+                boardState = 12;
+                return 6;
+            }
+            case 34:
+            if(!playerPos.contains(4)){
+                //win
+                return 4;
+            } else {
+                //win
+                return 3;
+            }
+            case 35:
+            if(!playerPos.contains(3)){
+                //win
+                return 3;
+            } else {
+                //win
+                return 9;
+            }
         }
+        return -1;
+    }
+
+    public static int fifthAiMove() {
+        switch(boardState){
+            case 1:
+            if (!playerPos.contains(6)){
+                //win
+                return 6;
+            } else {
+                //draw
+                return 4;
+            }
+            case 2:
+            if (!playerPos.contains(8)){
+                //win 
+                return 8;
+            } else{
+                //draw
+                return 2;
+            }
+            case 3:
+            if(!playerPos.contains(2)){
+                //win
+                return 2;
+            } else {
+                //draw
+                return 8;
+            }
+            case 4:
+            if(!playerPos.contains(4)){
+                //win
+                return 4;
+            } else {
+                //draw
+                return 6;
+            }
+            case 5:
+            if(!playerPos.contains(4)){
+                //draw
+                return 4;
+            } else {
+                //draw
+                return 6;
+            }
+            case 6:
+            if(!playerPos.contains(4)){
+                //win
+                return 4;
+            } else {
+                //draw
+                return 7;
+            }
+            case 7:
+            if(!playerPos.contains(8)){
+                //win
+                return 8;
+            } else {
+                //draw
+                return 3;
+            }
+            case 8:
+            if(!playerPos.contains(4)){
+                //win
+                return 4;
+            } else {
+                //draw
+                return 9;
+            }
+            case 9:
+            if(!playerPos.contains(8)){
+                //win
+                return 8;
+            } else {
+                //draw
+                return 1;
+            }
+            case 10:
+            if(!playerPos.contains(2)){
+                //win
+                return 2;
+            } else {
+                //draw
+                return 9;
+            }
+            case 11:
+            if(!playerPos.contains(6)){
+                //win
+                return 6;
+            } else {
+                //draw
+                return 1;
+            }
+            case 12:
+            if(!playerPos.contains(4)){
+                //win
+                return 4;
+            } else {
+                //draw
+                return 3;
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+        return -1;
     }
 
 
