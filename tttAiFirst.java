@@ -32,7 +32,6 @@ public class tttAiFirst{
 
         printGB(gameBoard); 
         //PLAYER FIRST MOVE
-        scan = new Scanner(System.in);
         System.out.println("Enter your placement (1-9);");
         pos = scan.nextInt();
         while(playerPos.contains(pos) || cpuPos.contains(pos)){
@@ -781,19 +780,7 @@ public class tttAiFirst{
                 //draw
                 return 3;
             }
-
-
-
-
-
-
-
-
-
-
         }
         return -1;
     }
-
-
 }
