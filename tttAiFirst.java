@@ -1,14 +1,11 @@
 import java.util.*;
 
 public class tttAiFirst{
-
     static ArrayList<Integer> playerPos = new ArrayList<Integer>();
     static ArrayList<Integer> cpuPos = new ArrayList<Integer>();
     static int strat = 0;
     static int boardState = -1;
-
     public static void main(String[] args){
-
         char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
                               {'-', '+', '-', '+', '-'},
                               {' ', '|', ' ', '|', ' '},
@@ -19,9 +16,7 @@ public class tttAiFirst{
         Scanner scan = new Scanner(System.in);
         int pos= -1;
         int cPos = 0; 
-        
         String result = "";
-        
         strat = rand.nextInt(2)+1;
         if (strat == 2){
             cPos = 5;
@@ -29,7 +24,6 @@ public class tttAiFirst{
             cPos = strat;
         }
         placePiece(gameBoard,cPos,"cpu");
-
         printGB(gameBoard); 
         //PLAYER FIRST MOVE
         System.out.println("Enter your placement (1-9);");
@@ -58,7 +52,6 @@ public class tttAiFirst{
             System.out.println(result);
             System.exit(0);
         }
-
         //PLAYER SECOND MOVE
         System.out.println("Enter your placement (1-9);");
         pos = scan.nextInt();
@@ -73,7 +66,6 @@ public class tttAiFirst{
             System.out.println(result);
             System.exit(0);
         }
-
         //CPU THIRD MOVE    
         cPos = thirdAiMove();
         while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
@@ -87,7 +79,6 @@ public class tttAiFirst{
             System.out.println(result);
             System.exit(0);
         }
-
         //PLAYER THIRD MOVE
         System.out.println("Enter your placement (1-9);");
         pos = scan.nextInt();
@@ -102,7 +93,6 @@ public class tttAiFirst{
             System.out.println(result);
             System.exit(0);
         }
-
         //CPU FOURTH MOVE    
         cPos = fourthAiMove();
         while(playerPos.contains(cPos) || cpuPos.contains(cPos)){
@@ -118,9 +108,7 @@ public class tttAiFirst{
         }
         scan.close();
         System.out.println("Game Didn't End?");
-
     }
-
     public static void printGB(char[] [] gb){
         for(char[] row: gb) {
             for(char c: row){
@@ -129,9 +117,7 @@ public class tttAiFirst{
             System.out.println();
         } 
     }
-
     public static void placePiece(char[][] gameBoard, int pos, String user){
-
         char symbol = ' ';
         if(user.equals("player")){
             symbol = 'X';
@@ -140,8 +126,6 @@ public class tttAiFirst{
             symbol = 'O';
             cpuPos.add(pos);
         }
-
-
         switch(pos) {
             case 1:
                 gameBoard[0][0]=symbol;
@@ -172,7 +156,6 @@ public class tttAiFirst{
             break;
         }
     }
-
     public static String checkWinner() {
         List<Integer> topRow = Arrays.asList(1,2,3);
         List<Integer> midRow = Arrays.asList(4,5,6);
@@ -182,7 +165,6 @@ public class tttAiFirst{
         List<Integer> rightCol = Arrays.asList(3,6,9);
         List<Integer> rightDiag = Arrays.asList(1,5,9);
         List<Integer> leftDiag = Arrays.asList(7,5,3);
-
         List<List<Integer>> winning = new ArrayList<List<Integer>>();
         winning.add(topRow);
         winning.add(midRow);
@@ -192,7 +174,6 @@ public class tttAiFirst{
         winning.add(rightCol);
         winning.add(rightDiag);
         winning.add(leftDiag);
-
         for(List<Integer> l : winning){
             if(playerPos.containsAll(l)){
                 return "You Win!";
@@ -202,11 +183,8 @@ public class tttAiFirst{
                 return "tie...";
             }
         }
-
-
         return "";
     }
-
     public static int secondAiMove(){
         switch(strat){
             case 1:
@@ -245,7 +223,6 @@ public class tttAiFirst{
         }
         return -1;
     }
-
     public static int thirdAiMove() {
         switch(boardState){
             case 1:
@@ -395,7 +372,6 @@ public class tttAiFirst{
         }
         return -1;
     }
-
     public static int fourthAiMove(){
         switch(boardState){
             case 1:
@@ -681,7 +657,6 @@ public class tttAiFirst{
         }
         return -1;
     }
-
     public static int fifthAiMove() {
         switch(boardState){
             case 1:
