@@ -1,11 +1,9 @@
 import java.util.*;
 
 public class tictactoe{
-
     static ArrayList<Integer> playerPos = new ArrayList<Integer>();
     static ArrayList<Integer> cpuPos = new ArrayList<Integer>();
     public static void main(String[] args){
-
         char[][] gameBoard = {{' ', '|', ' ', '|', ' '},
                               {'-', '+', '-', '+', '-'},
                               {' ', '|', ' ', '|', ' '},
@@ -45,9 +43,7 @@ public class tictactoe{
             }
         }
         scan.close();
-
     }
-
     public static void printGB(char[] [] gb){
         for(char[] row: gb) {
             for(char c: row){
@@ -56,9 +52,7 @@ public class tictactoe{
             System.out.println();
         } 
     }
-
     public static void placePiece(char[][] gameBoard, int pos, String user){
-
         char symbol = ' ';
         if(user.equals("player")){
             symbol = 'X';
@@ -67,8 +61,6 @@ public class tictactoe{
             symbol = 'O';
             cpuPos.add(pos);
         }
-
-
         switch(pos) {
             case 1:
                 gameBoard[0][0]=symbol;
@@ -99,7 +91,6 @@ public class tictactoe{
             break;
         }
     }
-
     public static String checkWinner() {
         List<Integer> topRow = Arrays.asList(1,2,3);
         List<Integer> midRow = Arrays.asList(4,5,6);
@@ -109,7 +100,6 @@ public class tictactoe{
         List<Integer> rightCol = Arrays.asList(3,6,9);
         List<Integer> rightDiag = Arrays.asList(1,5,9);
         List<Integer> leftDiag = Arrays.asList(7,5,3);
-
         List<List<Integer>> winning = new ArrayList<List<Integer>>();
         winning.add(topRow);
         winning.add(midRow);
@@ -119,7 +109,6 @@ public class tictactoe{
         winning.add(rightCol);
         winning.add(rightDiag);
         winning.add(leftDiag);
-
         for(List<Integer> l : winning){
             if(playerPos.containsAll(l)){
                 return "You Win!";
@@ -129,9 +118,6 @@ public class tictactoe{
                 return "tie...";
             }
         }
-
-
         return "";
     }
-
 }
